@@ -1,0 +1,24 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create a new primary partition
+      parted:
+        device: /dev/sdb
+        number: 1
+        state: present
+    - name: Create a ext4 filesystem on /dev/sdb1 and check disk blocks
+      filesystem:
+        fstype: ext4
+        dev: /dev/sdb1
+    - name: Create a directory if it does not exist
+      file:
+        path: /data
+        state: directory
+
+    - name: Mount
+      mount:
+        path: /data
+        src: /dev/sdb1
+        opts: bind
+        fstype: none
+        state: mounted
