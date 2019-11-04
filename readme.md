@@ -1,3 +1,7 @@
+This lab guide will show you how to use Ansible to configure Kubernetes cluster with docker runtime on a Windows workstation.
+
+### Install
+
 1.	Install Hyper-v
 2.	Install WSL (We gonna use WSL as our kubernetes management node)
 3.	Install Ubuntu (or any other dist) from MS Store or manually for WSL. For this lab Ubuntu dist will be used.
