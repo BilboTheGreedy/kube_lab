@@ -82,3 +82,6 @@ kubectl apply -f pv-volume.yaml
 1.	kubectapply -f nginx.yaml
 3.	To debug app: kubectl port-forward deployment.apps/nginx-deployment 8080:80
 4.	app is now exposed at localhost:8080 on your workstation
+5.  Ctrl+C the proxy. Its only used for debugging.
+6.  Lets expose our service: kubectl expose deployment nginx-deployment --type=LoadBalancer --name=nginx-service --external-ip=192.168.0.200
+7.  Change external IP: kubectl patch svc nginx-service -p '{"spec":{"externalIPs":["192.168.0.100"]}}'

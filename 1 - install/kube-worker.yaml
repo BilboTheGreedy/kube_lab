@@ -19,3 +19,9 @@
       args:
         chdir: $HOME
         creates: node_joined.txt
+- hosts: k8s-master
+  become: yes
+  tasks:
+    - name:
+      shell: "kubectl label node {{item}} node-role.kubernetes.io/worker=worker"
+  with_items: "{{ groups['k8s-workers'] }}"
