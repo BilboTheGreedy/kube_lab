@@ -6,9 +6,11 @@ This lab guide will show you how to use Ansible to configure Kubernetes cluster 
 2.	Install WSL (We gonna use WSL as our kubernetes management node)
 3.	Install Ubuntu (or any other dist) from MS Store or manually for WSL. For this lab Ubuntu dist will be used.
 4.	Start Ubuntu WSL
-a.	Sudo apt update -y
-b.	Sudo apt upgrade -y 
-c.	sudo apt install ansible -y
+    ```shell
+    Sudo apt update -y
+    Sudo apt upgrade -y 
+    sudo apt install ansible -y
+    ```
 5.	Configure our kubernetes NAT network. Open Powershell.
     ```javascript
     New-VMSwitch -SwitchName "NATSwitch" -SwitchType Internal
