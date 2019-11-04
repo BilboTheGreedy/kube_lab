@@ -40,14 +40,18 @@ I will assume you are using the same ssh keys, but if not… just login once to 
 16.	Create kube-worker.yaml
 17.	ansible-playbook -i inventory.cfg kube-worker.yaml --ask-become-pass
 18.	install kubectl on your workstation (windows)
-a.	Install-Script -Name install-kubectl -Scope CurrentUser -Force
-b.	install-kubectl.ps1
+```powershell
+Install-Script -Name install-kubectl -Scope CurrentUser -Force
+install-kubectl.ps1
+```
 19.	install kubectl on WSL (ubuntu)
-a.	sudo apt-get update && sudo apt-get install -y apt-transport-https
-b.	curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add –
-c.	echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-d.	sudo apt-get update
-e.	sudo apt-get install -y kubectl
+```shell
+sudo apt-get update && sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add –
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+```
 20.	copy the kube config files to your workstation.
 21.	scp -r bob@192.168.0.2:/home/kubeuser/.kube $HOME/.kube
 22.	run following command from WSL: kubectl get nodes
