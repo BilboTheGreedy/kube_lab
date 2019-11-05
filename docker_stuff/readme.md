@@ -20,3 +20,6 @@ services
 ```
 iptables -I INPUT 10 -p tcp --dport 80 -j ACCEPT
 ```
+
+elk stack swarm
+https://github.com/mattjtodd/docker-swarm-elk
