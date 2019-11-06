@@ -26,6 +26,7 @@ https://github.com/mattjtodd/docker-swarm-elk
 
 
 labby lab 
+```
 sed -i "s/.*PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 systemctl restart sshd
@@ -44,3 +45,4 @@ iptables -I INPUT -p udp --dport 4789 -j ACCEPT
 
 systemctl start docker
 systemcl enable docker
+```
