@@ -38,11 +38,15 @@ Name=eth0
 Address=ip/bit
 Gateway=somegw
 
+chmod 644 /etc/systemd/network/10-static-en.network
+
+reboot
+
 iptables -I INPUT -p tcp --dport 2376 -j ACCEPT
 iptables -I INPUT -p tcp --dport 7946 -j ACCEPT
 iptables -I INPUT -p udp --dport 7946 -j ACCEPT
 iptables -I INPUT -p udp --dport 4789 -j ACCEPT
-
+iptables-save > /etc/systemd/scripts/ip4save
 systemctl start docker
-systemcl enable docker
+systemctl enable docker
 ```
