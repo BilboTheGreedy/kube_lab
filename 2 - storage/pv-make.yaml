@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: k8s-worker
   become: yes
   tasks:
     - name: Create a new primary partition
@@ -15,10 +15,5 @@
         path: /data
         state: directory
 
-    - name: Mount
-      mount:
-        path: /data
-        src: /dev/sdb1
-        opts: bind
-        fstype: none
-        state: mounted
+    - name: mount
+      command: mount /dev/sdb1 /data
